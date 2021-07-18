@@ -28,7 +28,8 @@ router.post("/", async (req, res) => {
 	// send jwt
 	res.json({
 		loggedIn: true,
-		token: genToken({ id: user._id }, false),
+		token: genToken({ id: user._id }, user.isAdmin),
+		isAdmin: user.isAdmin,
 	});
 
 	try {
