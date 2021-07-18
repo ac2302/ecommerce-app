@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "categories",
   "info": {
-    "name": "Categories"
+    "name": "Categories",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,23 +13,23 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     },
     "icon": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
-        "files",
-        "videos"
+        "images"
       ],
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
     },
     "articles": {
-      "collection": "article",
       "via": "categories",
+      "collection": "article",
       "dominant": true
     },
     "description": {
