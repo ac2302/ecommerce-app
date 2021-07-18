@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 // expiry time in seconds
-const expiresIn = 60 * 60 * 24 * 7;
+const expiresIn = 60 * 60 * 24;
 
 const SECRET = process.env.JWT_SECRET;
 
@@ -14,5 +14,9 @@ module.exports = {
 			},
 			SECRET
 		);
+	},
+
+	readToken: (token) => {
+		return jwt.verify(token, SECRET).data;
 	},
 };

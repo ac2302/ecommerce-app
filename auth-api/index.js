@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 const registerRoute = require("./routes/register");
 const loginRoute = require("./routes/login");
+const validateRoute = require("./routes/validate");
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 // routes
 app.use("/register", registerRoute);
 app.use("/login", loginRoute);
+app.use("/validate", validateRoute);
 
 const PORT = process.env.PORT || 8085;
 app.listen(PORT, () => console.log("listening on port " + PORT));
