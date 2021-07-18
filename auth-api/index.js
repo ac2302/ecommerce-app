@@ -23,7 +23,7 @@ mongoose.connect(
 
 // middlewares
 app.use(express.json());
-app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+app.use(helmet());
 
 // routes
 app.use("/users", usersRoute);
