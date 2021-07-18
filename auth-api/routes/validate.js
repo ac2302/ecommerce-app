@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
 		const data = readToken(token);
 		res.json({
 			isValid: true,
-			newToken: genToken(data),
+			newToken: genToken(data, false),
 			data,
 		});
 	} catch (err) {

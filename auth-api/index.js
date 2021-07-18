@@ -4,6 +4,7 @@ const express = require("express");
 const helmet = require("helmet");
 const mongoose = require("mongoose");
 
+const usersRoute = require("./routes/users");
 const registerRoute = require("./routes/register");
 const loginRoute = require("./routes/login");
 const validateRoute = require("./routes/validate");
@@ -25,6 +26,7 @@ app.use(express.json());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 
 // routes
+app.use("/users", usersRoute);
 app.use("/register", registerRoute);
 app.use("/login", loginRoute);
 app.use("/validate", validateRoute);

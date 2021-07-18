@@ -1,15 +1,16 @@
 const jwt = require("jsonwebtoken");
 
 // expiry time in seconds
-const expiresIn = 60 * 60 * 24;
+const expiresIn = 60 * 60 * 24 * 3;
+const forever = 60 * 60 * 24 * 30 * 12 * 10;
 
 const SECRET = process.env.JWT_SECRET;
 
 module.exports = {
-	genToken: (data) => {
+	genToken: (data, isForever) => {
 		return jwt.sign(
 			{
-				exp: Math.floor(Date.now() / 1000) + expiresIn,
+				exp: Math.floor(Date.now() / 1000) + (isForever ? forever : expiresIn),
 				data,
 			},
 			SECRET

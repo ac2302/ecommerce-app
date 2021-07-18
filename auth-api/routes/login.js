@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
 	// send jwt
 	res.json({
 		loggedIn: true,
-		token: genToken({ id: user._id }),
+		token: genToken({ id: user._id }, false),
 	});
 
 	try {
