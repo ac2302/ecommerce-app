@@ -4,6 +4,8 @@ const express = require("express");
 const helmet = require("helmet");
 const mongoose = require("mongoose");
 
+const registerRoute = require("./routes/register");
+
 const app = express();
 
 // connecting to db
@@ -15,6 +17,9 @@ mongoose.connect(process.env.DB_STRING, (err) => {
 // middlewares
 app.use(express.json());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+
+// routes
+app.use("/register", registerRoute);
 
 const PORT = process.env.PORT || 8085;
 app.listen(PORT, () => console.log("listening on port " + PORT));
