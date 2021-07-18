@@ -9,10 +9,14 @@ const registerRoute = require("./routes/register");
 const app = express();
 
 // connecting to db
-mongoose.connect(process.env.DB_STRING, (err) => {
-	if (err) console.error(err);
-	else console.log("connected to db");
-});
+mongoose.connect(
+	process.env.DB_STRING,
+	{ useNewUrlParser: true, useUnifiedTopology: true },
+	(err) => {
+		if (err) console.error(err);
+		else console.log("connected to db");
+	}
+);
 
 // middlewares
 app.use(express.json());
